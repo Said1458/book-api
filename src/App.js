@@ -1,7 +1,7 @@
 import React from "react";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import Book from "./Components/Book/Book";
-
+import CardList from "./Components/Card/CardList";
 import { BrowserRouter as Rouer } from "react-router-dom";
 import "./App.css";
 
@@ -31,6 +31,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <SearchBar onSearch={(query) => this.handleFetch(query)} />
+        <CardList cards={this.state.data} />
+
       </div>
     );
   }

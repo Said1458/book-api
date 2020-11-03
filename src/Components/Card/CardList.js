@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import Card from "./Card";
 
-export default class CardList extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isFavorite: false,
-    };
-  }
-  render() {
-    return (
-      <div>
-        <div>
-          <Card />
-        </div>
-      </div>
-    );
-  }
+function CardList(props) {
+  console.log("test", props.cards);
+  return (
+    <>
+      {props.cards ? (
+        props.cards.works.map((card) => (
+          <>
+            <Card title={card.title} subtitle={card.authors[0].name} />
+          </>
+        ))
+      ) : (
+        <h1>Loading...</h1>
+      )}
+    </>
+  );
 }
+
+export default CardList;
